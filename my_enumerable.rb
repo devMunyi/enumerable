@@ -11,20 +11,22 @@ module MyEnumerable
   # any method
   def any?(&block)
     each do |element|
-      if block.call(element) == true
-        return true
-      end
+      return true if block.call(element) == true
+      # if block.call(element) == true
+      #   return true
+      # end
     end
-    return false
+    false
   end
 
   # all method
   def all?(&block)
     each do |element|
-      if block.call(element) == false
-        return false
-      end
+      return false if block.call(element) == false
+      # if block.call(element) == false
+      #   return false
+      # end
     end
-    return true
+    true
   end
 end
